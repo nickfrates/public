@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Contact List Filter" icon-name="standard:contact">
+        <div class="slds-m-around_medium">
+            <lightning-input
+                type="text"
+                label="Search by Last Name"
+                placeholder="Enter last name here"
+                onchange={handleLastNameChange}
+                hide-checkbox-column>
+            </lightning-input>
+        </div>
+        <lightning-datatable
+            key-field="Id"
+            data={contacts.data}
+            columns={columns}
+            class="slds-m-around_medium">
+        </lightning-datatable>
+        <template if:true={contacts.error}>
+            <p>Error: {contacts.error}</p>
+        </template>
+    </lightning-card>
+</template>
