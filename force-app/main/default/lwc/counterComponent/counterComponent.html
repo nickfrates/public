@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title={title}>
+        <div class="slds_p_around_medium">
+            <div class="slds-text-heading_large slds-align_absolute-center">
+                {count}
+            </div>
+            <div class="slds-grid slds-gutters slds-p-top_medium">
+                <div class="slds-col">
+                    <lightning-button
+                        label="Decrease"
+                        onclick={handleDecrement}
+                        variant="brand"
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button
+                        label="Reset"
+                        onclick={handleReset}
+                        variant="neutral"
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button
+                        label="Increase"
+                        onclick={handleIncrement}
+                        variant="brand"
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
