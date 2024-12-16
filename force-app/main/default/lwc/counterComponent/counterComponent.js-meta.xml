@@ -4,11 +4,11 @@
     <isExposed>true</isExposed>
     <targets>
         <target>lightning__AppPage</target>
-        <target>lightning__RecordPage</target>
         <target>lightning__HomePage</target>
+        <target>lightning__RecordPage</target>
     </targets>
     <targetConfigs>
-        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
+        <targetConfig targets="lightning__AppPage,lightning__HomePage,lightning__RecordPage">
             <property name="title" type="String" default="My Counter" label="Counter Title"/>
         </targetConfig>
     </targetConfigs>
