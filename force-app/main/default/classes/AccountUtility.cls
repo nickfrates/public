@@ -1,23 +1,25 @@
 public with sharing class AccountUtility {
     
-    public static Map<String, Integer> countAccountsByIndustry(List<Account> accounts){
+    public static Map<String, Id> createTechAccounts(List<String> accountNames){
+        List<Account> newAccounts = new List<Account>();
+        Map<String, Id> accNames = new Map<String, Id>();
 
-        Map<String, Integer> industryCount = new Map<String, Integer>();
-        Map<String, Integer> result = new Map<String, Integer>();
-
-        for(Account acc : accounts){
-            if(acc.industry!=null){
-                industryCount.put(acc.industry, industryCount.containsKey(acc.industry) ? industryCount.get(acc.industry) + 1 : 1);
+        for(String accName : accountNames){
+            Account acc = new Account(Name = accName);
+            if(accName.containsIgnoreCase('Tech')){
+                acc.Rating = 'Hot';
             }
+            newAccounts.add(acc);
         }
 
-        for(String industry : industryCount.keySet()){
-            if(industryCount.get(industry) > 1){
-                result.put(industry, industryCount.get(industry));
-            }
+        insert newAccounts;
+
+        for(Account acc : newAccounts){
+            accNames.put(acc.Name, acc.Id);
         }
 
-        return result;
+        return accNames;
+
     }
     
 }
