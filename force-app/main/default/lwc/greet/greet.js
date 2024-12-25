@@ -7,6 +7,7 @@ export default class Greet extends LightningElement {
 
     handleNameChange(event){
         this.userName = event.target.value;
+        console.log('Name changed to: ' + this.userName);
     }
 
     handleClick(){
