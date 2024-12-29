@@ -8,7 +8,7 @@ public class OpportunityManager{
         this.opps = [SELECT Id, Amount FROM Opportunity WHERE AccountId = :accountId];
     }
 
-    public void updateOpportunityAmounts(Decimal increasePercent){
+    public void updateOpportunityAmount(Decimal increasePercent){
         for(Opportunity opp : this.opps){
             opp.Amount = opp.Amount * (1 + (increasePercent/100));
         }
@@ -21,4 +21,19 @@ public class OpportunityManager{
         }
         update this.opps;
     }
+
+    public void makeNewTask(){
+        List<Task> newTasks = new List<Task>();
+        for(Opportunity opp : this.opps){
+            Task t = new Task();
+            t.WhatId = opp.Id;
+            t.Subject = 'Please Follow Up';
+            t.ownerId = UserInfo.getUserId();
+            t.Priority = 'Normal';
+            t.Status = 'Not Started';
+            newTasks.add(t);
+        }
+        insert newTasks;
+    }
+
 }
