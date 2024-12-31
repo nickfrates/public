@@ -1,0 +1,21 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="textarea-input">
+            <template if:true={required}>
+                <abbr class="slds-required" title="required">*</abbr>
+            </template>
+            {label}
+        </label>
+        <div class="slds-form-element__control">
+            <textarea 
+                id="textarea-input"
+                class="slds-textarea"
+                placeholder={placeholder}
+                required={required}
+                maxlength={maxLength}
+                rows={rows}
+                onchange={handleChange}
+            >{value}</textarea>
+        </div>
+    </div>
+</template>
