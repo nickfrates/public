@@ -1,0 +1,32 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_medium">
+                <lightning-input
+                    type="checkbox"
+                    label="Show Div"
+                    onchange={showDivHandler}>
+                </lightning-input>
+
+                <template if:true={displayDiv}>
+                    <div>I am here</div>
+                </template>
+                <template if:false={displayDiv}>
+                    <div>I am not here</div>
+                </template>
+
+                
+
+                <template for:each={cityList} for:item="city">
+                    <p key={city}>{city}</p>
+
+                </template>
+
+            <h1>Below is an example of iterator directive</h1>
+            <template iterator:it={cityList}>
+
+                <p key={it.value}>{it.value}</p>
+            </template>
+
+        </div>
+    </lightning-card>   
+</template>

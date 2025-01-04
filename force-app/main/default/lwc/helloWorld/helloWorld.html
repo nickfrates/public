@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Hello World LWC">
+        <div class="greeting-class">Hello {dynamicGreeting}</div>
+        <div style="color:chocolate; background-color:rgb(0, 0, 0);">Inline CSS Style</div>
+
+        <div>Styling with element tag name</div>
+        <lightning-input 
+            label="Greeting"
+            onchange={greetingChangeHandler}>
+
+        </lightning-input>
+    </lightning-card>
+</template>
