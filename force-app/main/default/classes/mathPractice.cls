@@ -1,8 +1,8 @@
 public with sharing class mathPractice {
-    
-    
-    public static Decimal calculateRange(List<Decimal> nums){
+   
+    // practice on 1/3/25
 
+    public static Decimal calculateRange(List<Decimal> nums){
         if(nums == null || nums.isEmpty()){
             return 0;
         }
@@ -16,8 +16,6 @@ public with sharing class mathPractice {
         }
 
         return (highest - lowest) * 2;
-
-
     }
 
     public static Decimal calculateAverage(List<Decimal> nums){
@@ -29,7 +27,7 @@ public with sharing class mathPractice {
         Integer positiveSumCount = 0;
 
         for(Decimal d : nums){
-            if(d < 0) continue;
+            if(d<0) continue;
             Decimal valueToAdd = d > 100 ? 100 : d;
             runningCount += valueToAdd;
             positiveSumCount += 1;
