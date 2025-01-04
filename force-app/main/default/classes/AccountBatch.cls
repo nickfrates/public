@@ -1,4 +1,6 @@
 public class AccountBatch implements Database.Batchable<Sobject>, Database.Stateful{
+    // practice 1/4/25
+
     public integer recordsProcessed = 0;
 
     public Database.QueryLocator start(Database.BatchableContext bc){
@@ -6,12 +8,15 @@ public class AccountBatch implements Database.Batchable<Sobject>, Database.State
     }
 
     public void execute(Database.BatchableContext bc, List<Account> scope){
-        for(Account acc : scope) acc.Batch_Description__c = 'Processed as of' + system.now();
+        for(Account acc : scope) acc.Batch_Description__c = 'Processed ' + system.now();
         update scope;
-        recordsProcessed = scope.size();
+        recordsProcessed += scope.size();
     }
 
     public void finish(Database.BatchableContext bc){
-        system.debug('Processed ' + recordsProcessed + ' records');
+        System.debug('Processed ' + recordsProcessed + ' records.');
     }
+
+    // AccountBatch batchJob = new AccountBatch();
+    // Database.executeBatch(batchJob);
 }
