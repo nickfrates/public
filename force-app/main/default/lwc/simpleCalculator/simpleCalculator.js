@@ -3,8 +3,12 @@ import { LightningElement, track } from 'lwc';
 export default class SimpleCalculator extends LightningElement {
 
     @track currentResult;
-    @track firstNumber;
-    @track secondNumber;
+    @track previousResults = [];
+    @track showPreviousResults = false;
+
+
+    firstNumber;
+    secondNumber;
 
     numberChangeHandler(event){
         
@@ -24,6 +28,7 @@ export default class SimpleCalculator extends LightningElement {
         const firstN = parseInt(this.firstNumber);
         const secondN = parseInt(this.secondNumber);
         this.currentResult = 'Result of ' + firstN + ' + ' + secondN + ' is ' + (firstN + secondN);
+        this.previousResults.push(this.currentResult);
 
     }
 
@@ -32,6 +37,7 @@ export default class SimpleCalculator extends LightningElement {
         const firstN = parseInt(this.firstNumber);
         const secondN = parseInt(this.secondNumber);
         this.currentResult = 'Result of ' + firstN + ' - ' + secondN + ' is ' + (firstN - secondN);
+        this.previousResults.push(this.currentResult);
 
     }
 
@@ -40,6 +46,7 @@ export default class SimpleCalculator extends LightningElement {
         const firstN = parseInt(this.firstNumber);
         const secondN = parseInt(this.secondNumber);
         this.currentResult = 'Result of ' + firstN + ' * ' + secondN + ' is ' + (firstN * secondN);
+        this.previousResults.push(this.currentResult);
 
     }
 
@@ -48,7 +55,12 @@ export default class SimpleCalculator extends LightningElement {
         const firstN = parseInt(this.firstNumber);
         const secondN = parseInt(this.secondNumber);
         this.currentResult = 'Result of ' + firstN + ' / ' + secondN + ' is ' + (firstN/secondN);
+        this.previousResults.push(this.currentResult);
 
+    }
+
+    showPreviousResultToggle(event){
+        this.showPreviousResults = event.target.checked;
     }
 
 }
