@@ -1,11 +1,11 @@
 public class collectionsKata{
-
+    // 1/12/25 Practice
     public static void nameList(List<String> names){
         
         Set<String> uniqueNames = new Set<String>(names);
-        Map<String,Integer> nameCount = new Map<String,Integer>();
+        Map<String, Integer> nameCount = new Map<String, Integer>();
 
-        for(string name : names){
+        for(String name : names){
             nameCount.put(name, nameCount.containsKey(name) ? nameCount.get(name) + 1 : 1);
         }
 
@@ -15,7 +15,7 @@ public class collectionsKata{
         }
 
         system.debug('Unique names: ' + uniqueNames);
-        system.debug('Name frequences: ' + nameCount);
+        system.debug('Name frequencies: ' + nameCount);
         system.debug('Duplicates: ' + duplicates);
     }
 
