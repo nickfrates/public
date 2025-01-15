@@ -1,0 +1,71 @@
+<!-- checkboxTest.html -->
+<template>
+    <div class="slds-card">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading tasks" size="small"></lightning-spinner>
+        </template>
+
+        <template if:true={hasError}>
+            <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                <h2>Error loading tasks. Please refresh the page.</h2>
+            </div>
+        </template>
+
+        <template if:false={isLoading}>
+            <!-- Header -->
+            <div class="slds-grid slds-p-around_small">
+                <div class="checkbox-container">
+                    <div class="checkbox-headers">
+                        <div>N</div>
+                        <div>IP</div>
+                        <div>C</div>
+                    </div>
+                </div>
+                <div class="subject-header">
+                    <span class="slds-text-heading_small">Task Subject</span>
+                </div>
+            </div>
+
+            <!-- Task List -->
+            <div class="slds-p-horizontal_small">
+                <template if:false={noTasks}>
+                    <template for:each={tasks} for:item="task">
+                        <div key={task.Id} class="slds-grid slds-p-vertical_xx-small task-row">
+                            <div class="checkbox-container">
+                                <div class="checkbox-group">
+                                    <lightning-input type="checkbox" 
+                                        data-id={task.Id} 
+                                        data-status="N"
+                                        checked={task.isNew}
+                                        onchange={handleStatusChange}>
+                                    </lightning-input>
+                                    <lightning-input type="checkbox" 
+                                        data-id={task.Id} 
+                                        data-status="IP"
+                                        checked={task.isInProgress}
+                                        onchange={handleStatusChange}>
+                                    </lightning-input>
+                                    <lightning-input type="checkbox" 
+                                        data-id={task.Id} 
+                                        data-status="C"
+                                        checked={task.isCompleted}
+                                        onchange={handleStatusChange}>
+                                    </lightning-input>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <span>{task.Subject}</span>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+
+                <template if:true={noTasks}>
+                    <div class="slds-text-align_center slds-p-around_medium">
+                        No tasks found for this account
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

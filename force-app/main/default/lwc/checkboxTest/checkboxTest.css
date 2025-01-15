@@ -1,0 +1,40 @@
+.checkbox-container {
+    width: 33%;
+    min-width: fit-content;
+    padding-right: 1rem;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 0.25rem;
+    max-width: fit-content;
+}
+
+.checkbox-headers {
+    display: flex;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    max-width: fit-content;
+}
+
+.checkbox-headers div {
+    width: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.subject-header {
+    width: 67%;
+    padding-left: 1rem;
+}
+
+.subject-content {
+    width: 67%;
+    padding-left: 1rem;
+    align-self: center;
+}
+
+/* Adjust lightning-input width */
+.checkbox-group lightning-input {
+    width: 20px;
+}
