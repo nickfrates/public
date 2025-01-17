@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="List of Contacts" icon-name="standard:contact">
+        <div class="slds-m-around_medium">
+            <lightning-button label="Load Contacts" onclick={queryContacts}></lightning-button>
+        </div>
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">
+                {error}
+            </div>
+        </template>
+        <template if:true={contacts}>
+            <lightning-datatable
+                key-field="Id"
+                data={contacts}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
