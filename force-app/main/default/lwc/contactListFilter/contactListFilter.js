@@ -7,9 +7,9 @@ export default class ContactListFilter extends LightningElement {
     lastName = '';
 
     columns = [
-        {label: 'First Name', fieldName: 'FirstName', type: 'text'},
-        {label: 'Last Name', fieldName: 'LastName', type: 'text'},
-        {label: 'Email', fieldName: 'Email', type: 'text'}
+        {label: 'First Name', fieldName: 'FirstName', sortable: true},
+        {label: 'Last Name', fieldName: 'LastName', sortable: true},
+        {label: 'Email', fieldName: 'Email', sortable: true}
     ];
 
     @wire(getContacts, {lastName: '$lastName'})
